@@ -1,0 +1,85 @@
+# ==========================================
+# 1. Python & Dependency Managers
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+*.db
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# 2. Local Environment Variables (Crucial!)
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ==========================================
+# 3. Pytest & Testing Cache
+# ==========================================
+.pytest_cache/
+.cache/
+
+# ==========================================
+# 4. Playwright Specific
+# ==========================================
+test-results/
+playwright-report/
+.playwright-targets/
+browser-downloads/
+
+# ==========================================
+# 5. Allure Reporting
+# ==========================================
+allure-results/
+allure-report/
+
+# ==========================================
+# 6. IDEs & Editors
+# ==========================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==========================================
+# 7. OS Specific Files
+# ==========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
