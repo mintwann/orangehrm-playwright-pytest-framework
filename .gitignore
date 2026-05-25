@@ -83,3 +83,9 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# ==========================================
+# 8. Framework Log Files
+# ==========================================
+logs/
+*.log
