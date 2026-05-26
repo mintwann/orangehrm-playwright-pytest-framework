@@ -9,7 +9,7 @@ LOGS_DIR = ROOT_DIR / "logs"
 # Ensure log directory exists dynamically
 os.makedirs(LOGS_DIR, exist_ok=True)
 
-log_file_name = f"execution_{datetime.now().strftime('%Y-%m-%d')}.log"
+log_file_name = f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
 log_file_path = LOGS_DIR / log_file_name
 
 # Initialize custom logger

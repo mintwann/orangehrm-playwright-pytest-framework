@@ -7,10 +7,6 @@ from utils.logger import logger
 
 @pytest.fixture(scope="session")
 def browser(playwright: Playwright) -> Generator[Browser, None, None]:
-    """
-    Unified source of truth for Browser Launch.
-    Reads browser type and headless mode directly from Settings.
-    """
     logger.info(f"Launching browser '{Settings.BROWSER}' (Headless: {Settings.HEADLESS})")
     
     # Dynamically get the browser type from Playwright based on settings
@@ -23,9 +19,6 @@ def browser(playwright: Playwright) -> Generator[Browser, None, None]:
 
 @pytest.fixture(scope="session")
 def context(browser: Browser) -> Generator[BrowserContext, None, None]:
-    """
-    Unified source of truth for Browser Context (Viewport, Cookies, etc.).
-    """
     logger.info("Initializing Browser Context with viewport 1280x720.")
     
     # Create a new browser context with a standard viewport size for consistency across tests
