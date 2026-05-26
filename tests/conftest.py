@@ -17,7 +17,7 @@ def browser(playwright: Playwright) -> Generator[Browser, None, None]:
     yield browser_instance
     browser_instance.close()
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def context(browser: Browser) -> Generator[BrowserContext, None, None]:
     logger.info("Initializing Browser Context with viewport 1280x720.")
     
