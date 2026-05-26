@@ -11,7 +11,7 @@ class BasePage:
         logger.info(f"Navigating to {url}")
         self.page.goto(url)
         
-    def click_element(self, selector: str, timeout: float = 10000):
+    def click(self, selector: str, timeout: float = 10000):
         """Wait for an element to be visible and click it."""
         logger.info(f"Clicking element with selector: {selector}")
         locator = self.page.locator(selector)
