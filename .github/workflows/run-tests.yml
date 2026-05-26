@@ -1,0 +1,47 @@
+name: Run Test Automation
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Run All Automated Tests on Ubuntu
+    runs-on: ubuntu-latest
+
+    # Bind environment variables from secure GitHub Secrets
+    env:
+      BASE_URL: https://opensource-demo.orangehrmlive.com
+      ADMIN_USER: ${{ secrets.ADMIN_USER }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Install Playwright browsers and system dependencies
+      run: playwright install chromium --with-deps
+
+    - name: Run all automated tests
+      run: pytest -v # Runs all tests under tests/ directory for regression coverage
+
+    - name: Upload execution logs
+      if: always() # Upload logs even if the tests fail
+      uses: actions/upload-artifact@v4
+      with:
+        name: execution-logs
+        path: logs/
+        retention-days: 7
