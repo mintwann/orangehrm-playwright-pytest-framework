@@ -19,7 +19,7 @@ logger.setLevel(logging.DEBUG)
 # Prevent duplicate handlers if logger is initialized multiple times
 if not logger.handlers:
     formatter = logging.Formatter(
-        fmt="[%(asctime)s] [%(levelname)s] [%(module)s]: %(message)s",
+        fmt="[%(asctime)s] [%(levelname)s] %(filename)s:%(lineno)d - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"
     )
 
